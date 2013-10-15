@@ -1,5 +1,6 @@
 from flask.ext.wtf import Form, TextField, BooleanField, TextAreaField
 from flask.ext.wtf import Required, Length
+from app.models import User
 
 class LoginForm(Form):
 	openid = TextField('openid', validators = [Required()])
@@ -23,3 +24,8 @@ class EditForm(Form):
 			self.nickname.errors.append('This nickname is already in use. Please choose another one')
 			return False
 		return True
+
+class PostForm(Form):
+	post = TextField('post', validators = [Required()])
+
+
